@@ -76,7 +76,7 @@ export const FORMATS: Record<
   },
   list(options) {
     const { attributes } = options
-    const wrapperTagname = 'ol' //attributes?.list === 'ordered' ? 'ol' : 'ul'
+    const wrapperTagname = 'ol' // attributes?.list === 'ordered' ? 'ol' : 'ul'
 
     return {
       innerHtml: `<span class="ql-ui" contenteditable="false"></span>${options.content}`,
