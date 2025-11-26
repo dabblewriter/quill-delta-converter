@@ -47,12 +47,12 @@ test('htmlConverter.link', (t) => {
 test('htmlConverter.image', (t) => {
   const { html } = converter.convert(
     { image: 'http://img.example.com' },
-    { width: '100', height: '200' }
+    { width: '100', height: '200', alt: 'img' }
   )
   t.truthy(
     fuzzyEqual(
       html,
-      '<img width="100" height="200" src="http://img.example.com" />'
+      '<img width="100" height="200" alt="img" src="http://img.example.com" />'
     )
   )
   t.truthy(
