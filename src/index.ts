@@ -7,6 +7,12 @@ import escaptHtml from 'escape-html'
 import { isTextOp } from './utils'
 import { Blot } from './models/blot'
 
+
+export * from './types'
+export { FORMATS as HTML_FORMATS } from './converter/html/formats'
+export { ATTRIBUTES as HTML_ATTRIBUTES } from './converter/html/attributes'
+export { FORMATS as MARKDOWN_FORMATS } from './converter/markdown/formats'
+export { ATTRIBUTES as MARKDOWN_ATTRIBUTES } from './converter/markdown/attributes'
 export class DeltaConverter {
   public htmlConverter: HtmlConverter
   public mdConverter: MarkdownConverter

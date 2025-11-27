@@ -52,7 +52,7 @@ test('htmlConverter.image', (t) => {
   t.truthy(
     fuzzyEqual(
       html,
-      '<img height="200" width="100" alt="img" src="http://img.example.com" />'
+      '<img width="100" height="200" alt="img" src="http://img.example.com" />'
     )
   )
   t.truthy(

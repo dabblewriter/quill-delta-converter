@@ -1,5 +1,5 @@
 import { ConvertOptions, HtmlConvertResult } from '../../types'
-type EmbedContent = Record<string, any>
+type EmbedContent = Record<string, unknown>
 
 export const FORMATS: Record<
   string,
@@ -17,24 +17,24 @@ export const FORMATS: Record<
     }
     return {}
   },
-  link(options) {
+  link(options?: ConvertOptions) {
     return {
       tagName: 'a',
       attributes: {
         target: '_blank',
         rel: 'noopener noreferrer',
-        href: options.attributes?.link,
+        href: options.attributes?.link as string,
       },
     }
   },
-  image(options) {
+  image(options: ConvertOptions) {
     return {
       tagName: 'img',
       attributes: {
         src: (options.content as EmbedContent).image as string,
-        alt: options.attributes?.alt,
-        height: options.attributes?.height,
-        width: options.attributes?.width,
+        alt: options.attributes?.alt as string,
+        height: options.attributes?.height as string,
+        width: options.attributes?.width as string,
       },
     }
   },
@@ -46,8 +46,8 @@ export const FORMATS: Record<
         src: (options.content as EmbedContent).video as string,
         frameborder: '0',
         allowfullscreen: 'true',
-        height: options.attributes?.height,
-        width: options.attributes?.width,
+        height: options.attributes?.height as string,
+        width: options.attributes?.width as string,
       },
     }
   },
@@ -82,7 +82,7 @@ export const FORMATS: Record<
       innerHtml: `<span class="ql-ui" contenteditable="false"></span>${options.content}`,
       tagName: 'li',
       attributes: {
-        'data-list': attributes?.list,
+        'data-list': attributes?.list as string,
       },
       wrapper: {
         tagName: wrapperTagname,

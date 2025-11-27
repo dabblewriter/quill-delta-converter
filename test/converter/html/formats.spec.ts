@@ -1,5 +1,6 @@
 import test from 'ava'
 import { FORMATS } from '@src/converter/html/formats'
+import { AttributeMap } from 'quill-delta'
 
 test('formats.bius', (t) => {
   t.deepEqual(FORMATS.bold(), { tagName: 'strong' })
@@ -42,7 +43,7 @@ test('formats.image', (t) => {
     width: '100',
     height: '200',
     alt: 'img',
-  }
+  } as AttributeMap
 
   t.deepEqual(
     FORMATS.image({
@@ -65,7 +66,7 @@ test('formats.video', (t) => {
   const attributes = {
     height: '100',
     width: '200',
-  }
+  } as AttributeMap
 
   t.deepEqual(
     FORMATS.video({
